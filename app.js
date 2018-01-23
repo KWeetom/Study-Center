@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var url = bodyParser.urlencoded({extended:false});
 app.set("view engine", "ejs");
+app.use(express.static('views'));
 
 var allData = fs.readFileSync('data.json');
 var fileData= [];
