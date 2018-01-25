@@ -22,25 +22,21 @@ app.get("/", function(req, res){
 app.get("/profile", function(req, res){
   console.log('')
   
-  res.render("index2.ejs");
+  res.render("index2.ejs");//then here you add the user/object to display all of their content
 
 });
 
-app.get("/profile", function(req, res){
-  console.log('')
-  
-  res.render("index2.ejs");
-
+app.post('/log', function (req, res) {
+  console.log("im in log in");
+  res.redirect('/profile');
 });
 
-
-app.post('/add/info', url, postMsg);
-
-function postMsg(request,response){
-  	var username = request.body.username;
-  	var password = request.body.password;
-  	console.log(username);
-  	console.log(password);
+app.post('/create', function (req, res) {
+    console.log('creating');
+    var username = request.body.username;
+    var password = request.body.password;
+    console.log(username);
+    console.log(password);
     
     var User = {'username': username , 'password':password};
    
@@ -51,8 +47,29 @@ function postMsg(request,response){
             console.log(err);
         }
     });
-    response.redirect('/profile');
-}
+    res.redirect('/profile');
+});
+
+
+// app.post('/add/info', url, postMsg);
+
+// function postMsg(request,response){
+//   	var username = request.body.username;
+//   	var password = request.body.password;
+//   	console.log(username);
+//   	console.log(password);
+    
+//     var User = {'username': username , 'password':password};
+   
+//     fileData.push(User);
+//     console.log(fileData.findIndex(x => x.username==username));
+//     fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
+//         if(err){
+//             console.log(err);
+//         }
+//     });
+//     response.redirect('/profile');
+// }
 
 // ********************************************
 
