@@ -5,35 +5,41 @@
 <!-- BOOSTRAP LINK FOR STYLING -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/style.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
 
 <div id="firstAddBtn">
-<img src="images/circleBtn1.png">
+<img src="images/circleBtn1.png" onclick="addNewDeck(this)">
 </div>
 
-<div class="subj">
+<!-- <div class="subj">
 <div class="card" style="width: 8rem;">
   <div class="card-body">
     <h5 class="card-title">Subject</h5>  
   </div>
 </div>
 </div>
+<br> -->
 
+<section id="subjSec"></section>
+
+<br>
 <hr>
 
-<div class="card border-success mb-3" style="max-width: 18rem;">
+<!-- <div class="card border-success mb-3" style="max-width: 18rem;">
   <div class="card-header bg-transparent border-success">Index card info: </div>
   <div class="card-body text-success">
-    <!-- <h5 class="card-title">Success card title</h5> -->
+    <h5 class="card-title">Success card title</h5>
     <p class="card-text">Write your study notes here</p>
   </div>
   <div class="card-footer bg-transparent border-success">Resources</div>
-</div>
+</div> -->
+<section id="cardSec"></section>
 
 <div id="secondAddBtn">
-<img src="images/circleBtn1.png">
+<img src="images/circleBtn1.png" onclick="addNewCard()">
 </div>
 
 
@@ -49,7 +55,8 @@
   <div class="grid-item">9</div> -->  
 </div>
 
-
+<
+<script type="text/javascript" src="/app2.js"></script>
 </body>
 </html>
 

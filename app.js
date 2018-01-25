@@ -26,15 +26,15 @@ app.get("/profile", function(req, res){
 
 });
 
-app.post('/log', function (req, res) {
+app.post('/log', url, function (req, res) {
   console.log("im in log in");
   res.redirect('/profile');
 });
 
-app.post('/create', function (req, res) {
+app.post('/create', url, function (req, res) {
     console.log('creating');
-    var username = request.body.username;
-    var password = request.body.password;
+    var username = req.body.username;
+    var password = req.body.password;
     console.log(username);
     console.log(password);
     
