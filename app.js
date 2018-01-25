@@ -26,6 +26,14 @@ app.get("/profile", function(req, res){
 
 });
 
+app.get("/profile", function(req, res){
+  console.log('')
+  
+  res.render("index2.ejs");
+
+});
+
+
 app.post('/add/info', url, postMsg);
 
 function postMsg(request,response){
@@ -49,6 +57,40 @@ function postMsg(request,response){
     newDeck('testdect')
     response.redirect('/profile');
 }
+
+// ********************************************
+
+//takes in info from form and check their input vs what is in JSON and opens 
+//profile if information matches.
+app.post('/login',url,function(req,res){
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    // console.log(username + "   " + password)
+    //infoarray.forEach(function(element, index) {
+    for(var i=0;i<fileData.length;i++){
+        // statements
+        console.log(username == fileData[i].username)
+        if(username == fileData[i].username){
+            if(password == fileData[i].password){
+                console.log('you logged in');
+                selectedProfile = fileData[i];
+                res.redirect('/profile'); // make sure also adds all the info of tht obj/user
+                break;
+            }
+            else{
+                console.log('Wrong password Entered)(()()(');
+                res.redirect('/');
+            }
+        }
+        else if(i==infoarray.length-1){
+            console.log('Not here');
+            res.redirect('/');
+        }
+    }
+});
+
+// ********************************************
 
 var server = app.listen(8080, listening);
 
