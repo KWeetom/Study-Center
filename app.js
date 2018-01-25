@@ -19,22 +19,51 @@ app.get("/", function(req, res){
 	res.render("index.ejs");
 
 });
+
+
 app.get("/profile", function(req, res){
   console.log('')
   
-  res.render("index2.ejs");//then here you add the user/object to display all of their content
+  res.render("index2.ejs",{userInfo:loggedUser.userInfo});//then here you add the user/object to display all of their content
 
 });
 
-app.post('/log', function (req, res) {
+
+app.post('/log', url,function (req, res) {
   console.log("im in log in");
-  res.redirect('/profile');
+  var username = req.body.username;
+  var password = req.body.password;
+  console.log(username + "   " + password)
+  //infoarray.forEach(function(element, index) {
+  
+  for(var i=0;i<fileData.length;i++){
+      // statements
+      console.log(username == fileData[i].username)
+      if(username == fileData[i].username){
+          if(password == fileData[i].password){
+              console.log('you logged in');
+              loggedUser = {"userInfo":fileData[i], "fileDataIndex":i};
+
+              res.redirect('/profile'); // make sure also adds all the info of tht obj/user
+              break;
+          }
+          else{
+              console.log('Wrong password Entered)(()()(');
+              res.redirect('/');
+          }
+      }
+      else if(i==fileData.length-1){
+          console.log('Not here');
+          res.redirect('/');
+      }
+    }
+  //res.redirect('/profile');
 });
 
-app.post('/create', function (req, res) {
+app.post('/create', url, function (req, res) {
     console.log('creating');
-    var username = request.body.username;
-    var password = request.body.password;
+    var username = req.body.username;
+    var password = req.body.password;
     console.log(username);
     console.log(password);
     
@@ -50,10 +79,38 @@ app.post('/create', function (req, res) {
 
     signUp(username,password);
     newClass('testclass');
-    newDeck('testdect')
-    response.redirect('/profile');
-}
+    newClass('testclass!');
+    newClass('testclass!!');
+
+    newDeck('testdect1');
+    newDeck('testdect2');
+    newDeck('testdect3');
+
+
+    res.redirect('/profile');
+
 //===============================
+    // fileData.push(User);
+    // console.log(fileData.findIndex(x => x.username==username));
+    // fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
+    //     if(err){
+    //         console.log(err);
+    //     }
+    // });
+    // res.redirect('/profile');
+});
+
+
+app.post('/add/info', url, postMsg);
+
+function postMsg(request,response){
+  	var username = request.body.username;
+  	var password = request.body.password;
+  	console.log(username);
+  	console.log(password);
+    
+    var User = {'username': username , 'password':password};
+   
     fileData.push(User);
     console.log(fileData.findIndex(x => x.username==username));
     fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
@@ -61,29 +118,8 @@ app.post('/create', function (req, res) {
             console.log(err);
         }
     });
-    res.redirect('/profile');
-});
-
-
-// app.post('/add/info', url, postMsg);
-
-// function postMsg(request,response){
-//   	var username = request.body.username;
-//   	var password = request.body.password;
-//   	console.log(username);
-//   	console.log(password);
-    
-//     var User = {'username': username , 'password':password};
-   
-//     fileData.push(User);
-//     console.log(fileData.findIndex(x => x.username==username));
-//     fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
-//         if(err){
-//             console.log(err);
-//         }
-//     });
-//     response.redirect('/profile');
-// }
+    response.redirect('/profile');
+}
 //------------------VanessaCode---------------------
 
 // ********************************************
@@ -93,7 +129,6 @@ app.post('/create', function (req, res) {
 app.post('/login',url,function(req,res){
     var username = req.body.username;
     var password = req.body.password;
-    
     // console.log(username + "   " + password)
     //infoarray.forEach(function(element, index) {
     for(var i=0;i<fileData.length;i++){
@@ -102,7 +137,7 @@ app.post('/login',url,function(req,res){
         if(username == fileData[i].username){
             if(password == fileData[i].password){
                 console.log('you logged in');
-                selectedProfile = fileData[i];
+                 loggedUser = {"userInfo":fileData[i], "fileDataIndex":i};
                 res.redirect('/profile'); // make sure also adds all the info of tht obj/user
                 break;
             }
@@ -150,6 +185,7 @@ function deckList(deckName){
 function signUp(username,password){
   var newUser = new user(username,password);
   fileData.push(newUser);
+
   index = fileData.findIndex(x => x.username==newUser.email);
   loggedUser = {"userInfo":newUser, "fileDataIndex":index};
 
@@ -197,6 +233,7 @@ function addnewCard(){
 
   loggedUser.userInfo.classes[classindex].decks[deckindex].cardNumber++;
   loggedUser.userInfo.classes[classindex].decks[deckindex].cards.push(userinput)
+
   fileData[loggedUser.index] = loggedUser.userInfo;
   fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
       if(err){
@@ -204,3 +241,11 @@ function addnewCard(){
       }
   });  
 }
+// app.use(function(req, res, next){
+//     if (typeof(req.userInfo) == 'undefined') {
+//         req.userInfo = [];
+//     }else {
+//       req.userInfo = loggedUser.userInfo;
+//     }
+//     next();
+// });

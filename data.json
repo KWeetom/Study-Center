@@ -42,6 +42,72 @@
             "deckName": "testdect",
             "cardNumber": 0,
             "cards": []
+          },{
+            "deckName": "testdect1",
+            "cardNumber": 0,
+            "cards": []
+          },{
+            "deckName": "testdect2",
+            "cardNumber": 0,
+            "cards": []
+          },{
+            "deckName": "testdect3",
+            "cardNumber": 0,
+            "cards": []
+          }
+        ]
+      },{
+        "className": "testclass!",
+        "decks": [
+          {
+            "deckName": "testdect",
+            "cardNumber": 0,
+            "cards": []
+          }
+        ]
+      },{
+        "className": "testclass!!",
+        "decks": [
+          {
+            "deckName": "testdect",
+            "cardNumber": 0,
+            "cards": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username": "kent@gmail.com",
+    "password": "akmfak",
+    "classes": [
+      {
+        "className": "testclass",
+        "decks": []
+      }
+    ]
+  },
+  {
+    "username": "kim@gmail.com",
+    "password": "adfahja",
+    "classes": [
+      {
+        "className": "testclass",
+        "decks": []
+      }
+    ]
+  },
+  {
+    "username": "ben@gmail.com",
+    "password": "anfjadf",
+    "classes": [
+      {
+        "className": "testclass",
+        "decks": [
+          {
+            "deckName": "testdect",
+            "cardNumber": 0,
+            "cards": []
           }
         ]
       }

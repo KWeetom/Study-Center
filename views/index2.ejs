@@ -13,24 +13,36 @@
 <img src="images/circleBtn1.png">
 </div>
 
-<div class="subj">
+
+<div class="subj"> 
+  <% userInfo.classes.forEach(function(inputData, index){ %>
+    <div class="card" style="width: 8rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= inputData.className %><%= index %></h5>  
+      </div>
+    </div>
+    <% }); %>
+</div>
+
+<!-- <div class="subj">
 <div class="card" style="width: 8rem;">
   <div class="card-body">
     <h5 class="card-title">Subject</h5>  
   </div>
 </div>
-</div>
+</div> -->
 
 <hr>
-
-<div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Index card info: </div>
-  <div class="card-body text-success">
-    <!-- <h5 class="card-title">Success card title</h5> -->
-    <p class="card-text">Write your study notes here</p>
+<% userInfo.classes[0].decks.forEach(function(inputData, index){ %>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div>
+    <div class="card-body text-success">
+      <!-- <h5 class="card-title">Success card title</h5> -->
+      <p class="card-text">Write your study notes here</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Resources</div>
   </div>
-  <div class="card-footer bg-transparent border-success">Resources</div>
-</div>
+<% }); %>
 
 <div id="secondAddBtn">
 <img src="images/circleBtn1.png">
