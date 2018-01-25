@@ -13,12 +13,11 @@
 <img src="images/circleBtn1.png">
 </div>
 
-
 <div class="subj"> 
   <% userInfo.classes.forEach(function(inputData, index){ %>
     <div class="card" style="width: 8rem;">
       <div class="card-body">
-        <h5 class="card-title"><%= inputData.className %><%= index %></h5>  
+       <a href="/profile/<%= index %>"><h5 class="card-title"><%= inputData.className %><%= index %></h5></a>
       </div>
     </div>
     <% }); %>
@@ -33,9 +32,9 @@
 </div> -->
 
 <hr>
-<% userInfo.classes[0].decks.forEach(function(inputData, index){ %>
+<% userInfo.classes[currentsubject].decks.forEach(function(inputData, index){ %>
   <div class="card border-success mb-3" style="max-width: 18rem;">
-    <div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div>
+    <a href="/decks/<%= index %>"><div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div></a>
     <div class="card-body text-success">
       <!-- <h5 class="card-title">Success card title</h5> -->
       <p class="card-text">Write your study notes here</p>

@@ -12,6 +12,9 @@ var fileData= [];
 fileData = JSON.parse(allData);
 
 var loggedUser;
+var currentsubject = 0;
+var deckindex = 0;
+var currentcard = 0;
 
 app.get("/", function(req, res){
 	console.log('')
@@ -24,10 +27,28 @@ app.get("/", function(req, res){
 app.get("/profile", function(req, res){
   console.log('')
   
-  res.render("index2.ejs",{userInfo:loggedUser.userInfo});//then here you add the user/object to display all of their content
+  res.render("index2.ejs",{userInfo:loggedUser.userInfo,currentsubject:currentsubject});//then here you add the user/object to display all of their content
 
 });
+app.get("/profile/:classindex", function(req, res){
+    currentsubject = req.params.classindex;
+    res.redirect('/profile')
+});
 
+
+app.get('/page3',function(req,res){
+  res.render('index3.ejs',{deckdata:loggedUser.userInfo.classes[currentsubject],deckindex:deckindex,currentcard:currentcard});
+
+})
+app.get("/decks/:index",function(req,res){
+  deckindex = req.params.index;
+  res.redirect('/page3');
+});
+app.get("/decks/cards/:card", function(req,res){
+  currentcard = req.params.card;
+  console.log(currentsubject)
+  res.redirect('/page3')
+});
 
 app.post('/log', url,function (req, res) {
   console.log("im in log in");
