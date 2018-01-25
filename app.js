@@ -19,6 +19,14 @@ app.get("/", function(req, res){
 
 });
 
+app.get("/profile", function(req, res){
+  console.log('')
+  
+  res.render("index2.ejs");
+
+});
+
+
 app.post('/add/info', url, postMsg);
 
 function postMsg(request,response){
@@ -43,7 +51,7 @@ function postMsg(request,response){
 
 //takes in info from form and check their input vs what is in JSON and opens 
 //profile if information matches.
-app.post('/login',urlencodedParser,function(req,res){
+app.post('/login',url,function(req,res){
     var username = req.body.username;
     var password = req.body.password;
     
@@ -56,8 +64,7 @@ app.post('/login',urlencodedParser,function(req,res){
             if(password == fileData[i].password){
                 console.log('you logged in');
                 selectedProfile = fileData[i];
-                //res.redirect('/profile');
-                res.render("index2.ejs");
+                res.redirect('/profile'); // make sure also adds all the info of tht obj/user
                 break;
             }
             else{
