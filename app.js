@@ -10,6 +10,7 @@ app.use(express.static('views'));
 var allData = fs.readFileSync('data.json');
 var fileData= [];
 fileData = JSON.parse(allData);
+
 var loggedUser;
 
 app.get("/", function(req, res){
@@ -47,6 +48,8 @@ function listening(){
 
 }
 
+
+//these functions generate new objects for the users
 function user(email, password){
   this.email =email;
   this.password = password;
@@ -69,7 +72,10 @@ function signUp(){
   var password = request.body.password;
 
   var newUser = new user(username,password);
-  loggedUser = newUser;
+  fileData.push(newUser);
+
+  index = a.findIndex(x => x.prop2==newUser.email);
+  loggedUser = {"userInfo":newUser, "fileDataIndex":index};
 }
 //when add new class to that user
 function newClass(){
@@ -79,6 +85,7 @@ function newClass(){
   var classToAdd = new classList(classname);
   loggedUser.classes.push(classToAdd);
 }
+//generate a new deck for specified class
 function newDeak(){
   //get deckname
   var deckname;
@@ -87,6 +94,7 @@ function newDeak(){
   var deckToAdd = new deckList(deckname);
   loggedUser.classes[classindex].decks.push(deckToAdd);
 }
+//adds new cards to the deck and increment card number
 function addnewCard(){
 
   loggedUser.classes[classindex].decks[deckindex].cardNumber++;
