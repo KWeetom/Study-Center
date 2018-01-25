@@ -10,7 +10,7 @@ app.use(express.static('views'));
 var allData = fs.readFileSync('data.json');
 var fileData= [];
 fileData = JSON.parse(allData);
-
+var loggedUser;
 
 app.get("/", function(req, res){
 	console.log('')
@@ -45,4 +45,50 @@ function listening(){
 
    console.log("listening")
 
+}
+
+function user(email, password){
+  this.email =email;
+  this.password = password;
+  this.classes = [];
+}
+function classList(className){
+  this.className = className;
+  this.decks = [];
+}
+function deckList(deckName){
+  this.deckName = deckName;
+  this.cardNumber = 0;
+  this.cards = [];
+}
+
+
+// when making a new user
+function signUp(){
+  var username = request.body.username;
+  var password = request.body.password;
+
+  var newUser = new user(username,password);
+  loggedUser = newUser;
+}
+//when add new class to that user
+function newClass(){
+  //get name of class from user
+  var classname;
+
+  var classToAdd = new classList(classname);
+  loggedUser.classes.push(classToAdd);
+}
+function newDeak(){
+  //get deckname
+  var deckname;
+  //figure out how to checj what class were in
+  var classindex;
+  var deckToAdd = new deckList(deckname);
+  loggedUser.classes[classindex].decks.push(deckToAdd);
+}
+function addnewCard(){
+
+  loggedUser.classes[classindex].decks[deckindex].cardNumber++;
+  loggedUser.classes[classindex].decks[deckindex].cards.push(userinput)
 }

@@ -1,7 +1,17 @@
 [
   {
     "username": "Vanessa.Ortiz3@lc.cuny.edu",
-    "password": "jjjj"
+    "password": "jjjj",
+    "classes":[{
+        "classname":"",
+        "decks": [ {
+            "deckname":"",
+            "cardsnumber":,
+            "cards":[]
+          }
+        ]
+      }
+    ]
   },
   {
     "username": "vanninany@gmail.com",
