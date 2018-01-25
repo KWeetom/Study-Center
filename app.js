@@ -100,13 +100,13 @@ app.post('/create', url, function (req, res) {
     // });
 
     signUp(username,password);
-    newClass('testclass');
-    newClass('testclass!');
-    newClass('testclass!!');
+    newClass();
+    // newClass('testclass!');
+    // newClass('testclass!!');
 
-    newDeck('testdect1');
-    newDeck('testdect2');
-    newDeck('testdect3');
+    // newDeck();
+    // newDeck('testdect2');
+    // newDeck('testdect3');
 
 
     res.redirect('/profile');
@@ -204,13 +204,12 @@ function deckList(deckName){
 
 
 // when making a new user
-function signUp(){
-  var username = request.body.username;
-  var password = request.body.password;
+function signUp(username,password){
+  // var username = request.body.username;
+  // var password = request.body.password;
 
   var newUser = new user(username,password);
   fileData.push(newUser);
-
   index = fileData.findIndex(x => x.username==newUser.email);
   loggedUser = {"userInfo":newUser, "fileDataIndex":index};
 }
@@ -221,18 +220,28 @@ function newClass(){
 
   var classToAdd = new classList(classname);
   loggedUser.userInfo.classes.push(classToAdd);
-  filedata[loggedUser.index] = loggedUser.userInfo;
+  fileData[loggedUser.index] = loggedUser.userInfo;
+  fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
+      if(err){
+          console.log(err);
+      }
+  });
 
 }
 //generate a new deck for specified class
-function newDeak(){
+function newDeck(){
   //get deckname
   var deckname;
   //figure out how to checj what class were in
   var classindex;
   var deckToAdd = new deckList(deckname);
-  loggedUser.userInfo.classes[classindex].decks.push(deckToAdd);
-  filedata[loggedUser.index] = loggedUser.userInfo;
+  loggedUser.userInfo.classes[currentsubject].decks.push(deckToAdd);
+  fileData[loggedUser.index] = loggedUser.userInfo;
+  fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
+      if(err){
+          console.log(err);
+      }
+  });
 
 }
 //adds new cards to the deck and increment card number

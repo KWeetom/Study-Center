@@ -5,7 +5,7 @@
 // }
 
 $("#firstAddBtn").click(function(){
-    $("#subjSec").append('<form method= "POST" action = "/newSubject"><div class="card move" style="width: 8rem;"><div class="card-body"><h5 class="card-title">Subject</h5><input type="text" id="subjName" size="9"> </div></div></form>');
+    $("#subjSec").append('<form class="move" method= "POST" action = "/newSubject"><div class="card" style="width: 8rem;"><div class="card-body"><h5 class="card-title">Subject</h5><input type="text" id="subjName" size="9"> </div></div></form>');
    
 });
 

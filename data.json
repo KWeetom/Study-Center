@@ -89,6 +89,46 @@
         ]
       }
     ]
+  },
+  {
+    "email": "kent@gmail.com",
+    "password": "afdafa",
+    "classes": [
+      {
+        "decks": [
+          {
+            "cardNumber": 0,
+            "cards": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "email": "asdas@afad.com",
+    "password": "afad",
+    "classes": [
+      {
+        "decks": []
+      }
+    ]
+  },
+  {
+    "email": "mafdkma@gmail.com",
+    "password": "afd",
+    "classes": [
+      {
+        "decks": []
+      }
+    ]
+  },
+  {
+    "email": "asdas@afad.com",
+    "password": "adfdf",
+    "classes": [
+      {
+        "decks": []
+      }
+    ]
   }
 ]
-  
