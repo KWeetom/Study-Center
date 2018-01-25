@@ -22,11 +22,17 @@ h3{
     font-size: 30px;
     margin-bottom: 20px;
 }
-.subj{
+/*.subj{
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
 
+}*/
+.move{
+  display: inline-block;
+}
+#subjSec{
+  display: inline;
 }
 
 hr { 
@@ -40,18 +46,18 @@ hr {
 }
 #firstAddBtn{
     float: right;
-    position: absolute;
+   /* position: absolute;
     top: 45px;
-    right: 85%; 
+    right: 85%; */
 
 }
 
 #secondAddBtn{
     float: right;
-    position: absolute;
+   /* position: absolute;
     bottom: 57%;
     right: 75%;
-    overflow: hidden;
+    overflow: hidden;*/
    /* background-color: yellow;*/
     
 }

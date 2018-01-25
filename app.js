@@ -21,10 +21,14 @@ app.get("/profile", function(req, res){
   
   res.render("index2.ejs");//then here you add the user/object to display all of their content
 });
-app.post('/log', function (req, res) {
+
+
+app.post('/log', url, function (req, res) {
   console.log("im in log in");
   res.redirect('/profile');
 });
+
+
 app.post('/create', url, function (req, res) {
     console.log('creating');
     var username = req.body.username;
