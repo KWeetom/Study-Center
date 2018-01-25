@@ -39,6 +39,41 @@ function postMsg(request,response){
     response.redirect('/');
 }
 
+// ********************************************
+
+//takes in info from form and check their input vs what is in JSON and opens 
+//profile if information matches.
+app.post('/login',urlencodedParser,function(req,res){
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    // console.log(username + "   " + password)
+    //infoarray.forEach(function(element, index) {
+    for(var i=0;i<fileData.length;i++){
+        // statements
+        console.log(username == fileData[i].username)
+        if(username == fileData[i].username){
+            if(password == fileData[i].password){
+                console.log('you logged in');
+                selectedProfile = fileData[i];
+                //res.redirect('/profile');
+                res.render("index2.ejs");
+                break;
+            }
+            else{
+                console.log('Wrong password Entered)(()()(');
+                res.redirect('/');
+            }
+        }
+        else if(i==infoarray.length-1){
+            console.log('Not here');
+            res.redirect('/');
+        }
+    }
+});
+
+// ********************************************
+
 var server = app.listen(8080, listening);
 
 function listening(){
