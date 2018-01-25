@@ -32,7 +32,6 @@
     "password": "hhhh"
   },
   {
-<<<<<<< HEAD
     "username": "kent@gmail.com",
     "password": "kafafdda",
     "classes": [
@@ -51,9 +50,6 @@
   {
     "username": "Tainac90@gmail.com",
     "password": "fzkshjd"
-=======
-    "username": "Vanessa.Ortiz3@lc.cuny.edu",
-    "password": "ggg"
   },
   {
     "username": "Vanessa.Ortiz3@lc.cuny.edu",
@@ -90,6 +86,17 @@
   {
     "username": "vanninany@gmail.com",
     "password": "w"
->>>>>>> b870001ddb9b0f676f136c401565fcbdf0b5d913
+  },
+  {
+    "username": "Tainac90@gmail.com",
+    "password": "ds"
+  },
+  {
+    "username": "Tainac90@gmail.com",
+    "password": "ds"
+  },
+  {
+    "username": "tainac90@gmail.com",
+    "password": "dsfv"
   }
 ]

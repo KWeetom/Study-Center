@@ -6,28 +6,30 @@ var app = express();
 var url = bodyParser.urlencoded({extended:false});
 app.set("view engine", "ejs");
 app.use(express.static('public'));
+
 var allData = fs.readFileSync('data.json');
 var fileData= [];
 fileData = JSON.parse(allData);
+
 var loggedUser;
 
 app.get("/", function(req, res){
-    console.log('')
-    
-    res.render("index.ejs");
+  console.log('')
+  
+  res.render("index.ejs");
+
 });
 app.get("/profile", function(req, res){
   console.log('')
   
   res.render("index2.ejs");//then here you add the user/object to display all of their content
-});
 
+});
 
 app.post('/log', url, function (req, res) {
   console.log("im in log in");
   res.redirect('/profile');
 });
-
 
 app.post('/create', url, function (req, res) {
     console.log('creating');
@@ -47,12 +49,15 @@ app.post('/create', url, function (req, res) {
     });
     res.redirect('/profile');
 });
+
+
 // app.post('/add/info', url, postMsg);
+
 // function postMsg(request,response){
-//      var username = request.body.username;
-//      var password = request.body.password;
-//      console.log(username);
-//      console.log(password);
+//    var username = request.body.username;
+//    var password = request.body.password;
+//    console.log(username);
+//    console.log(password);
     
 //     var User = {'username': username , 'password':password};
    
@@ -65,7 +70,9 @@ app.post('/create', url, function (req, res) {
 //     });
 //     response.redirect('/profile');
 // }
+
 // ********************************************
+
 //takes in info from form and check their input vs what is in JSON and opens 
 //profile if information matches.
 app.post('/login',url,function(req,res){
@@ -95,11 +102,18 @@ app.post('/login',url,function(req,res){
         }
     }
 });
+
 // ********************************************
-var server = app.listen(8080, listening);
+
+var server = app.listen(3000, listening);
+
 function listening(){
+
    console.log("listening")
+
 }
+
+
 //these functions generate new objects for the users
 function user(email, password){
   this.email =email;
@@ -115,12 +129,16 @@ function deckList(deckName){
   this.cardNumber = 0;
   this.cards = [];
 }
+
+
 // when making a new user
 function signUp(){
   var username = request.body.username;
   var password = request.body.password;
+
   var newUser = new user(username,password);
   fileData.push(newUser);
+
   index = fileData.findIndex(x => x.username==newUser.email);
   loggedUser = {"userInfo":newUser, "fileDataIndex":index};
 }
@@ -128,9 +146,11 @@ function signUp(){
 function newClass(){
   //get name of class from user
   var classname;
+
   var classToAdd = new classList(classname);
   loggedUser.userInfo.classes.push(classToAdd);
   filedata[loggedUser.index] = loggedUser.userInfo;
+
 }
 //generate a new deck for specified class
 function newDeak(){
@@ -141,9 +161,11 @@ function newDeak(){
   var deckToAdd = new deckList(deckname);
   loggedUser.userInfo.classes[classindex].decks.push(deckToAdd);
   filedata[loggedUser.index] = loggedUser.userInfo;
+
 }
 //adds new cards to the deck and increment card number
 function addnewCard(){
+
   loggedUser.userInfo.classes[classindex].decks[deckindex].cardNumber++;
   loggedUser.userInfo.classes[classindex].decks[deckindex].cards.push(userinput)
   filedata[loggedUser.index] = loggedUser.userInfo;
