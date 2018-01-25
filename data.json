@@ -1,37 +1,5 @@
 [
   {
-    "username": "vanninany@gmail.com",
-    "password": "tgujkl"
-  },
-  {
-    "username": "Vanessa.Ortiz3@lc.cuny.edu",
-    "password": "jefj"
-  },
-  {
-    "username": "Vanessa.Ortiz3@lc.cuny.edu",
-    "password": "jjhjj"
-  },
-  {
-    "username": "Vanessa.Ortiz3@lc.cuny.edu",
-    "password": "ffff"
-  },
-  {
-    "username": "Vanessa.Ortiz3@lc.cuny.edu",
-    "password": "hhhhh"
-  },
-  {
-    "username": "alsmdl@gmail.com",
-    "password": "akjfnafkjan"
-  },
-  {
-    "username": "bala@gmail.com",
-    "password": "aldla"
-  },
-  {
-    "username": "Vanessa.Ortiz3@lc.cuny.edu",
-    "password": "hhhh"
-  },
-  {
     "username": "kent@gmail.com",
     "password": "kafafdda",
     "classes": [
@@ -121,73 +89,6 @@
         ]
       }
     ]
-  },
-  {
-    "username": "kadeemweetom@gmail.com",
-    "password": "asfsad",
-    "classes": [
-      {
-        "className": "testclass",
-        "decks": [
-          {
-            "deckName": "testdect1",
-            "cardNumber": 0,
-            "cards": []
-          },
-          {
-            "deckName": "testdect2",
-            "cardNumber": 0,
-            "cards": []
-          },
-          {
-            "deckName": "testdect3",
-            "cardNumber": 0,
-            "cards": []
-          }
-        ]
-      },
-      {
-        "className": "testclass!",
-        "decks": []
-      },
-      {
-        "className": "testclass!!",
-        "decks": []
-      }
-    ]
-  },
-  {
-    "username": "mnjn@m.com",
-    "password": "",
-    "classes": [
-      {
-        "className": "testclass",
-        "decks": [
-          {
-            "deckName": "testdect1",
-            "cardNumber": 0,
-            "cards": []
-          },
-          {
-            "deckName": "testdect2",
-            "cardNumber": 0,
-            "cards": []
-          },
-          {
-            "deckName": "testdect3",
-            "cardNumber": 0,
-            "cards": []
-          }
-        ]
-      },
-      {
-        "className": "testclass!",
-        "decks": []
-      },
-      {
-        "className": "testclass!!",
-        "decks": []
-      }
-    ]
   }
 ]
+  

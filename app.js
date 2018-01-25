@@ -17,9 +17,9 @@ var deckindex = 0;
 var currentcard = 0;
 
 app.get("/", function(req, res){
-	console.log('')
-	
-	res.render("index.ejs");
+  console.log('')
+  
+  res.render("index.ejs");
 
 });
 
@@ -51,6 +51,7 @@ app.get("/decks/cards/:card", function(req,res){
 });
 
 app.post('/log', url,function (req, res) {
+
   console.log("im in log in");
   var username = req.body.username;
   var password = req.body.password;
@@ -87,7 +88,7 @@ app.post('/create', url, function (req, res) {
     var password = req.body.password;
     console.log(username);
     console.log(password);
-    
+
     // var User = {'username': username , 'password':password};
 
     // fileData.push(User);
@@ -141,7 +142,7 @@ function postMsg(request,response){
     });
     response.redirect('/profile');
 }
-//------------------VanessaCode---------------------
+
 
 // ********************************************
 
@@ -176,7 +177,7 @@ app.post('/login',url,function(req,res){
 
 // ********************************************
 
-var server = app.listen(8080, listening);
+var server = app.listen(3000, listening);
 
 function listening(){
 
@@ -187,7 +188,7 @@ function listening(){
 
 //these functions generate new objects for the users
 function user(email, password){
-  this.username =email;
+  this.email =email;
   this.password = password;
   this.classes = [];
 }
@@ -203,50 +204,35 @@ function deckList(deckName){
 
 
 // when making a new user
-function signUp(username,password){
+function signUp(){
+  var username = request.body.username;
+  var password = request.body.password;
+
   var newUser = new user(username,password);
   fileData.push(newUser);
 
   index = fileData.findIndex(x => x.username==newUser.email);
   loggedUser = {"userInfo":newUser, "fileDataIndex":index};
-
-  fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
-      if(err){
-          console.log(err);
-      }
-  });
-  console.log(fileData.findIndex(x => x.username==username));
-
 }
 //when add new class to that user
-function newClass(name){
+function newClass(){
   //get name of class from user
-  var classname = name;
+  var classname;
 
   var classToAdd = new classList(classname);
   loggedUser.userInfo.classes.push(classToAdd);
-  fileData[loggedUser.index] = loggedUser.userInfo;
-  fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
-      if(err){
-          console.log(err);
-      }
-  });
+  filedata[loggedUser.index] = loggedUser.userInfo;
 
 }
 //generate a new deck for specified class
-function newDeck(name){
+function newDeak(){
   //get deckname
-  var deckname = name;
+  var deckname;
   //figure out how to checj what class were in
-  var classindex = 0;
+  var classindex;
   var deckToAdd = new deckList(deckname);
   loggedUser.userInfo.classes[classindex].decks.push(deckToAdd);
-  fileData[loggedUser.index] = loggedUser.userInfo;
-  fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
-      if(err){
-          console.log(err);
-      }
-  });
+  filedata[loggedUser.index] = loggedUser.userInfo;
 
 }
 //adds new cards to the deck and increment card number
@@ -262,11 +248,4 @@ function addnewCard(){
       }
   });  
 }
-// app.use(function(req, res, next){
-//     if (typeof(req.userInfo) == 'undefined') {
-//         req.userInfo = [];
-//     }else {
-//       req.userInfo = loggedUser.userInfo;
-//     }
-//     next();
-// });
+
