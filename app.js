@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var url = bodyParser.urlencoded({extended:false});
 app.set("view engine", "ejs");
-app.use(express.static('views'));
+app.use(express.static('public'));
 
 var allData = fs.readFileSync('data.json');
 var fileData= [];
@@ -17,6 +17,12 @@ app.get("/", function(req, res){
 	console.log('')
 	
 	res.render("index.ejs");
+
+});
+app.get("/profile", function(req, res){
+  console.log('')
+  
+  res.render("index2.ejs");
 
 });
 
@@ -31,13 +37,13 @@ function postMsg(request,response){
     var User = {'username': username , 'password':password};
    
     fileData.push(User);
-    console.log(fileData);
+    console.log(fileData.findIndex(x => x.username==username));
     fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
         if(err){
             console.log(err);
         }
     });
-    response.redirect('/');
+    response.redirect('/profile');
 }
 
 var server = app.listen(8080, listening);
@@ -74,7 +80,7 @@ function signUp(){
   var newUser = new user(username,password);
   fileData.push(newUser);
 
-  index = a.findIndex(x => x.prop2==newUser.email);
+  index = fileData.findIndex(x => x.username==newUser.email);
   loggedUser = {"userInfo":newUser, "fileDataIndex":index};
 }
 //when add new class to that user
@@ -83,7 +89,9 @@ function newClass(){
   var classname;
 
   var classToAdd = new classList(classname);
-  loggedUser.classes.push(classToAdd);
+  loggedUser.userInfo.classes.push(classToAdd);
+  filedata[loggedUser.index] = loggedUser.userInfo;
+
 }
 //generate a new deck for specified class
 function newDeak(){
@@ -92,11 +100,14 @@ function newDeak(){
   //figure out how to checj what class were in
   var classindex;
   var deckToAdd = new deckList(deckname);
-  loggedUser.classes[classindex].decks.push(deckToAdd);
+  loggedUser.userInfo.classes[classindex].decks.push(deckToAdd);
+  filedata[loggedUser.index] = loggedUser.userInfo;
+
 }
 //adds new cards to the deck and increment card number
 function addnewCard(){
 
-  loggedUser.classes[classindex].decks[deckindex].cardNumber++;
-  loggedUser.classes[classindex].decks[deckindex].cards.push(userinput)
+  loggedUser.userInfo.classes[classindex].decks[deckindex].cardNumber++;
+  loggedUser.userInfo.classes[classindex].decks[deckindex].cards.push(userinput)
+  filedata[loggedUser.index] = loggedUser.userInfo;
 }
