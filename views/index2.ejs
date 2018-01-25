@@ -16,7 +16,7 @@
 
 <section id="subjSec">  
   <% userInfo.classes.forEach(function(inputData, index){ %>
-    <div class="card" style="width: 8rem;">
+    <div class="card move" style="width: 8rem;">
       <div class="card-body">
        <a href="/profile/<%= index %>"><h5 class="card-title"><%= inputData.className %><%= index %></h5></a>
       </div>
@@ -28,7 +28,7 @@
 <hr>
 
 <% userInfo.classes[currentsubject].decks.forEach(function(inputData, index){ %>
-  <div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card move border-success mb-3" style="max-width: 18rem;">
     <a href="/decks/<%= index %>"><div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div></a>
     <div class="card-body text-success">
       <!-- <h5 class="card-title">Success card title</h5> -->
