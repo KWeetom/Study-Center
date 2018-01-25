@@ -22,7 +22,7 @@ app.get("/", function(req, res){
 app.get("/profile", function(req, res){
   console.log('')
   
-  res.render("index2.ejs");//then here you add the user/object to display all of their content
+  res.render("index2.ejs", {userInfo: loggedUser});//then here you add the user/object to display all of their content
 
 });
 
