@@ -30,5 +30,21 @@
   {
     "username": "Vanessa.Ortiz3@lc.cuny.edu",
     "password": "hhhh"
+  },
+  {
+    "username": "kent@gmail.com",
+    "password": "kafafdda",
+    "classes": [
+      {
+        "className": "testclass",
+        "decks": [
+          {
+            "deckName": "testdect",
+            "cardNumber": 0,
+            "cards": []
+          }
+        ]
+      }
+    ]
   }
 ]
