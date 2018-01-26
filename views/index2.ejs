@@ -8,7 +8,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
-<body>
+<body >
   <h1>Study Center</h1>
 
 <div id="firstAddBtn">
@@ -26,7 +26,7 @@
 </div>
 </form> -->
 
-<section id="subjSec"> 
+<!-- <section id="subjSec"> 
   <% userInfo.classes.forEach(function(inputData, index){ %>
     <div class="card move" style="width: 8rem;">
       <div class="card-body">
@@ -34,10 +34,21 @@
       </div>
     </div>
     <% }); %>
-  </section>
+  </section> -->
 
 
- 
+  <form id="subjSec" name="form1" action="javascript:work()">  
+  <% userInfo.classes.forEach(function(inputData, index){ %>
+  <div class="subj" id="subj3">
+    <div class="card move" style="width: 8rem;">
+      <div class="card-body">
+       <a href="/profile/<%= index %>"><h5 class="card-title" id="subjT"><%= inputData.className %><%= index %></h5></a>
+       <input type="text" name="textInfo" id="subjName" size="9" placeholder="Subject ">
+     </div>
+      </div>
+    </div>
+    <% }); %>
+  </form>
 
 <br>
 <hr>
