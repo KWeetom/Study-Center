@@ -100,7 +100,6 @@ app.post('/create', url, function (req, res) {
     // });
 
     signUp(username,password);
-    newClass();
     // newClass('testclass!');
     // newClass('testclass!!');
 
@@ -142,9 +141,11 @@ function postMsg(request,response){
     });
     response.redirect('/profile');
 }
-
-
-// ********************************************
+//add new class to list
+app.post('/subjectTitle',function(req,res){
+  var subjectTitle = req.body.subjT1;
+  newClass(subjectTitlej);
+});
 
 //takes in info from form and check their input vs what is in JSON and opens 
 //profile if information matches.
@@ -174,8 +175,6 @@ app.post('/login',url,function(req,res){
         }
     }
 });
-
-// ********************************************
 
 var server = app.listen(3000, listening);
 
@@ -214,10 +213,9 @@ function signUp(username,password){
   loggedUser = {"userInfo":newUser, "fileDataIndex":index};
 }
 //when add new class to that user
-function newClass(){
-  //get name of class from user
-  var classname;
 
+function newClass(classname){
+  //get name of class from user
   var classToAdd = new classList(classname);
   loggedUser.userInfo.classes.push(classToAdd);
   fileData[loggedUser.index] = loggedUser.userInfo;

@@ -4,7 +4,7 @@
     "password": "kafafdda",
     "classes": [
       {
-        "className": "testclass",
+        "className": "Bio",
         "decks": [
           {
             "deckName": "testdect",
@@ -33,7 +33,7 @@
         ]
       },
       {
-        "className": "testclass!",
+        "className": "Math!",
         "decks": [
           {
             "deckName": "testdect",
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "className": "testclass!!",
+        "className": "Chemistry",
         "decks": [
           {
             "deckName": "testdect",
@@ -125,6 +125,15 @@
   {
     "email": "asdas@afad.com",
     "password": "adfdf",
+    "classes": [
+      {
+        "decks": []
+      }
+    ]
+  },
+  {
+    "email": "bob@gmail.com",
+    "password": "a",
     "classes": [
       {
         "decks": []

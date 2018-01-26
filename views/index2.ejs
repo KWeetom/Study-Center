@@ -27,16 +27,18 @@
 <br>
 <hr>
 
-<% userInfo.classes[currentsubject].decks.forEach(function(inputData, index){ %>
-  <div class="card move border-success mb-3" style="max-width: 18rem;">
-    <a href="/decks/<%= index %>"><div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div></a>
-    <div class="card-body text-success">
-      <!-- <h5 class="card-title">Success card title</h5> -->
-      <p class="card-text">Write your study notes here</p>
+<% if (userInfo.classes.length > 0) { %>
+  <% userInfo.classes[currentsubject].decks.forEach(function(inputData, index){ %>
+    <div class="card move border-success mb-3" style="max-width: 18rem;">
+      <a href="/decks/<%= index %>"><div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div></a>
+      <div class="card-body text-success">
+        <!-- <h5 class="card-title">Success card title</h5> -->
+        <p class="card-text">Write your study notes here</p>
+      </div>
+      <div class="card-footer bg-transparent border-success">Resources</div>
     </div>
-    <div class="card-footer bg-transparent border-success">Resources</div>
-  </div>
-<% }); %>
+  <% }); %>
+<% } %>
 
 <section id="cardSec"></section>
 <br>
