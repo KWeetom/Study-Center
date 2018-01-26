@@ -45,7 +45,7 @@ h5{
 
 .move{
   display: inline-block;
-
+  overflow: hidden;
 }
 #subjSec{
   display: inline-block;
@@ -90,5 +90,13 @@ hr {
   font-size: 30px;
   text-align: center;
 }
-
+.flashCards{
+  width: 200px;
+  height: 100px;
+}
+#backbutton{
+  width: 50px;
+  height: 50px;
+  float: left;
+}
 

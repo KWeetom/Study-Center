@@ -50,6 +50,21 @@ app.get("/decks/cards/:card", function(req,res){
   res.redirect('/page3')
 });
 
+app.post('/newSubject',url,function(req,res){
+  var subjectTitle = req.body.subjName;
+  console.log('new subjectTitlej')
+  newClass(subjectTitle);
+  res.redirect("/profile");
+});
+
+app.post('/newDeck',url,function(req,res){
+  var DeckTitle = req.body.deckName;
+  var DeckDescription = req.body.deckdescription
+  console.log('new subjectTitlej')
+  newDeck(DeckTitle, DeckDescription);
+  res.redirect("/profile");
+});
+
 app.post('/log', url,function (req, res) {
 
   console.log("im in log in");
@@ -88,27 +103,7 @@ app.post('/create', url, function (req, res) {
     var password = req.body.password;
     console.log(username);
     console.log(password);
-
-    // var User = {'username': username , 'password':password};
-
-    // fileData.push(User);
-    // console.log(fileData.findIndex(x => x.username==username));
-    // fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
-
     signUp(username,password);
-    newClass('testclass');
-    newClass('testclass!');
-    newClass('testclass!!');
-
-    newDeck('testdect1');
-    newDeck('testdect2');
-    newDeck('testdect3');
-
-
     res.redirect('/profile');
 
 });
@@ -133,9 +128,8 @@ function postMsg(request,response){
     });
     response.redirect('/profile');
 }
+//add new class to list
 
-
-// ********************************************
 
 //takes in info from form and check their input vs what is in JSON and opens 
 //profile if information matches.
@@ -166,8 +160,6 @@ app.post('/login',url,function(req,res){
     }
 });
 
-// ********************************************
-
 var server = app.listen(3000, listening);
 function listening(){
    console.log("listening")
@@ -184,43 +176,51 @@ function classList(className){
   this.className = className;
   this.decks = [];
 }
-function deckList(deckName){
+function deckList(deckName, description){
   this.deckName = deckName;
   this.cardNumber = 0;
+  this.deckdescription = description;
   this.cards = [];
 }
 
 
 // when making a new user
-function signUp(){
-  var username = request.body.username;
-  var password = request.body.password;
+function signUp(username,password){
+  // var username = request.body.username;
+  // var password = request.body.password;
 
   var newUser = new user(username,password);
   fileData.push(newUser);
-
   index = fileData.findIndex(x => x.username==newUser.email);
   loggedUser = {"userInfo":newUser, "fileDataIndex":index};
 }
 //when add new class to that user
-function newClass(){
-  //get name of class from user
-  var classname;
 
+function newClass(classname){
+  //get name of class from user
   var classToAdd = new classList(classname);
   loggedUser.userInfo.classes.push(classToAdd);
-  filedata[loggedUser.index] = loggedUser.userInfo;
+  fileData[loggedUser.index] = loggedUser.userInfo;
+  fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
+      if(err){
+          console.log(err);
+      }
+  });
 
 }
 //generate a new deck for specified class
-function newDeak(){
+function newDeck(deckname,deckdescription){
   //get deckname
-  var deckname;
   //figure out how to checj what class were in
   var classindex;
-  var deckToAdd = new deckList(deckname);
-  loggedUser.userInfo.classes[classindex].decks.push(deckToAdd);
-  filedata[loggedUser.index] = loggedUser.userInfo;
+  var deckToAdd = new deckList(deckname, deckdescription);
+  loggedUser.userInfo.classes[currentsubject].decks.push(deckToAdd);
+  fileData[loggedUser.index] = loggedUser.userInfo;
+  fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
+      if(err){
+          console.log(err);
+      }
+  });
 
 }
 //adds new cards to the deck and increment card number

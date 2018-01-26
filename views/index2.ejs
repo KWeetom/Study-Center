@@ -26,18 +26,18 @@
 </div>
 </form> -->
 
-<!-- <section id="subjSec"> 
+<section id="subjSec"> 
   <% userInfo.classes.forEach(function(inputData, index){ %>
     <div class="card move" style="width: 8rem;">
       <div class="card-body">
-       <a href="/profile/<%= index %>"><h5 class="card-title"><%= inputData.className %><%= index %></h5></a>
+       <a href="/profile/<%= index %>"><h5 class="card-title"><%= inputData.className %></h5></a>
       </div>
     </div>
     <% }); %>
-  </section> -->
+  </section>
 
 
-  <form id="subjSec" name="form1" action="javascript:work()">  
+<!--   <form id="subjSec" name="form1" action="javascript:work()">  
   <% userInfo.classes.forEach(function(inputData, index){ %>
   <div class="subj" id="subj3">
     <div class="card move" style="width: 8rem;">
@@ -49,20 +49,22 @@
     </div>
     <% }); %>
   </form>
-
+ -->
 <br>
 <hr>
 
-<% userInfo.classes[currentsubject].decks.forEach(function(inputData, index){ %>
-  <div class="card move border-success mb-3" style="max-width: 18rem;">
-    <a href="/decks/<%= index %>"><div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div></a>
-    <div class="card-body text-success">
-      <!-- <h5 class="card-title">Success card title</h5> -->
-      <p class="card-text">Write your study notes here</p>
+<% if (userInfo.classes.length > 0) { %>
+  <% userInfo.classes[currentsubject].decks.forEach(function(inputData, index){ %>
+    <div class="card move border-success mb-3" style="max-width: 18rem;">
+      <a href="/decks/<%= index %>"><div class="card-header bg-transparent border-success"><%= inputData.deckName %> </div></a>
+      <div class="card-body text-success">
+        <!-- <h5 class="card-title">Success card title</h5> -->
+        <p class="card-text"><%= inputData.deckdescription %></p>
+      </div>
+      <div class="card-footer bg-transparent border-success">Resources</div>
     </div>
-    <div class="card-footer bg-transparent border-success">Resources</div>
-  </div>
-<% }); %>
+  <% }); %>
+<% } %>
 
 <section id="cardSec"></section>
 <br>
@@ -72,17 +74,17 @@
 </div>
 
 
-<div class="grid-container">
+<!-- <div class="grid-container">
   <div class="grid-item">index photo</div>
   <div class="grid-item">index photo</div>
   <div class="grid-item">index photo</div>  
   <div class="grid-item">index photo</div>
   <div class="grid-item">index photo</div>
   <div class="grid-item">index photo</div>  
-<!--   <div class="grid-item">7</div>
+ <div class="grid-item">7</div>
   <div class="grid-item">8</div>
   <div class="grid-item">9</div> -->  
-</div>
+</div> -->
 
 <script type="text/javascript" src="/app2.js"></script>
 </body>
