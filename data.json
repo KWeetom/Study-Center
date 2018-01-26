@@ -8,6 +8,7 @@
         "decks": [
           {
             "deckName": "The Atom",
+            "deckdescription": "Study about the Atom",
             "cardNumber": 3,
             "cards": [
               "An atom is the smallest constituent unit of ordinary matter that has the properties of a chemical element. Every solid, liquid, gas, and plasma is composed of neutral or ionized atoms. Atoms are very small; typical sizes are around 100 picometers (a ten-billionth of a meter, in the short scale).",
@@ -17,18 +18,15 @@
             ]
           },
           {
-            "deckName": "testdect1",
+            "deckName": "gravity",
             "cardNumber": 0,
+            "deckdescription": "does gravity work?\r\n",
             "cards": []
           },
           {
-            "deckName": "testdect2",
+            "deckName": "sky",
             "cardNumber": 0,
-            "cards": []
-          },
-          {
-            "deckName": "testdect3",
-            "cardNumber": 0,
+            "deckdescription": "asdajfhadjfa\r\nfdkmak\r\nagnaf",
             "cards": []
           }
         ]
@@ -39,6 +37,7 @@
           {
             "deckName": "testdect",
             "cardNumber": 0,
+            "deckdescription": "",
             "cards": []
           }
         ]
@@ -48,6 +47,22 @@
         "decks": [
           {
             "deckName": "testdect",
+            "cardNumber": 0,
+            "deckdescription": "",
+            "cards": []
+          },
+          {
+            "deckName": "the body",
+            "cardNumber": 0,
+            "cards": []
+          }
+        ]
+      },
+      {
+        "className": "art",
+        "decks": [
+          {
+            "deckName": "Picasso",
             "cardNumber": 0,
             "cards": []
           }

@@ -50,6 +50,21 @@ app.get("/decks/cards/:card", function(req,res){
   res.redirect('/page3')
 });
 
+app.post('/newSubject',url,function(req,res){
+  var subjectTitle = req.body.subjName;
+  console.log('new subjectTitlej')
+  newClass(subjectTitle);
+  res.redirect("/profile");
+});
+
+app.post('/newDeck',url,function(req,res){
+  var DeckTitle = req.body.deckName;
+  var DeckDescription = req.body.deckdescription
+  console.log('new subjectTitlej')
+  newDeck(DeckTitle, DeckDescription);
+  res.redirect("/profile");
+});
+
 app.post('/log', url,function (req, res) {
 
   console.log("im in log in");
@@ -88,17 +103,6 @@ app.post('/create', url, function (req, res) {
     var password = req.body.password;
     console.log(username);
     console.log(password);
-
-    // var User = {'username': username , 'password':password};
-
-    // fileData.push(User);
-    // console.log(fileData.findIndex(x => x.username==username));
-    // fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
-
     signUp(username,password);
     res.redirect('/profile');
 
@@ -125,10 +129,7 @@ function postMsg(request,response){
     response.redirect('/profile');
 }
 //add new class to list
-app.post('/subjectTitle',function(req,res){
-  var subjectTitle = req.body.subjT1;
-  newClass(subjectTitlej);
-});
+
 
 //takes in info from form and check their input vs what is in JSON and opens 
 //profile if information matches.
@@ -175,9 +176,10 @@ function classList(className){
   this.className = className;
   this.decks = [];
 }
-function deckList(deckName){
+function deckList(deckName, description){
   this.deckName = deckName;
   this.cardNumber = 0;
+  this.deckdescription = description;
   this.cards = [];
 }
 
@@ -207,12 +209,11 @@ function newClass(classname){
 
 }
 //generate a new deck for specified class
-function newDeck(){
+function newDeck(deckname,deckdescription){
   //get deckname
-  var deckname;
   //figure out how to checj what class were in
   var classindex;
-  var deckToAdd = new deckList(deckname);
+  var deckToAdd = new deckList(deckname, deckdescription);
   loggedUser.userInfo.classes[currentsubject].decks.push(deckToAdd);
   fileData[loggedUser.index] = loggedUser.userInfo;
   fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
