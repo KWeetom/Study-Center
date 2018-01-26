@@ -2,37 +2,50 @@
 body {
   background-image: url(images/dust_scratches.png);
   height:100%;
+ /* text-align: center;*/
+}
+h1 { 
+  color: #708090  ; 
+  font-family: "Great Vibes", cursive; 
+  font-size:100px; 
+  line-height: 100px; 
+  font-weight: normal;  
+  margin-top: 30px;
+  margin-bottom: 50px; 
+  text-align: center; 
+  text-shadow: 0 4px 1px #fff; 
 }
 .center{
     width: auto;
     position: relative;
-    top: 200px;
-    margin-left: 35%;
-    margin-right: 35%;
-    padding: 1%;
+    top: 100px;
+    margin-left: 31%;
+    margin-right: 31%;
+    padding: 2%;
     border-radius: 20px;
-    /*background-color: transparent;*/
     border: 1px solid black;
     background: rgba(0, 0, 0, .2);
     box-shadow: 20px 18px 80px #000;
     overflow: auto;
+
 }
+
 h3{
     text-align: center;
     font-size: 30px;
     margin-bottom: 20px;
 }
-/*.subj{
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+h5{
+  text-align: center;
+}
 
-}*/
 .move{
   display: inline-block;
+
 }
 #subjSec{
-  display: inline;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 hr { 
@@ -46,30 +59,25 @@ hr {
 }
 #firstAddBtn{
     float: right;
-   /* position: absolute;
-    top: 45px;
-    right: 85%; */
-
+    padding-top: 30px;
+    padding-right: 20px;
 }
 
-#secondAddBtn{
+#secondAddBtn {
     float: right;
-   /* position: absolute;
-    bottom: 57%;
-    right: 75%;
-    overflow: hidden;*/
-   /* background-color: yellow;*/
-    
+    padding-bottom: 80px;
+    padding-right: 20px;
+     
 }
+
 
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
- /* background-color: green;*/
   padding-top: 40px;
   padding-right: 150px;
   padding-bottom: 40px;
-  /*padding: 40px;*/
+
 }
 .grid-item {
   background-color: rgba(128, 128, 128, 0.8);

@@ -9,12 +9,24 @@
 </head>
 
 <body>
+  <h1>Study Center</h1>
 
 <div id="firstAddBtn">
 <img src="images/circleBtn1.png" onclick="addNewDeck(this)">
 </div>
 
-<section id="subjSec">  
+<!-- <form name="form1" action="javascript:work()">
+<div class="subj" id="subj3">
+<div class="card" style="width: 8rem;">
+  <div class="card-body">
+    <h5 class="card-title" id="subjT"></h5> 
+    <input type="text" name="textInfo" id="subjName" size="9" placeholder="Subject ">
+  </div>
+</div>
+</div>
+</form> -->
+
+<section id="subjSec"> 
   <% userInfo.classes.forEach(function(inputData, index){ %>
     <div class="card move" style="width: 8rem;">
       <div class="card-body">
@@ -23,6 +35,9 @@
     </div>
     <% }); %>
   </section>
+
+
+ 
 
 <br>
 <hr>
