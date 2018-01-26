@@ -3,10 +3,22 @@ body {
   background-image: url(images/dust_scratches.png);
   height:100%;
 }
+h1 { 
+  color: #708090  ; 
+  font-family: "Great Vibes", cursive; 
+  font-size:100px; 
+  line-height: 100px; 
+  font-weight: normal;  
+  margin-top: 90px; 
+  text-align: center; 
+  text-shadow: 0 4px 1px #fff; 
+}
 .center{
+
+  
     width: auto;
     position: relative;
-    top: 200px;
+    top: 100px;
     margin-left: 35%;
     margin-right: 35%;
     padding: 1%;
@@ -16,7 +28,22 @@ body {
     background: rgba(0, 0, 0, .2);
     box-shadow: 20px 18px 80px #000;
     overflow: auto;
+
 }
+/*.center{
+    width: auto;
+    position: relative;
+    top: 200px;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 1%;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 1px solid black;
+    background: rgba(0, 0, 0, .2);
+    box-shadow: 20px 18px 80px #000;
+    overflow: auto;
+}*/
 h3{
     text-align: center;
     font-size: 30px;

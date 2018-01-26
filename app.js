@@ -111,15 +111,6 @@ app.post('/create', url, function (req, res) {
 
     res.redirect('/profile');
 
-//===============================
-    // fileData.push(User);
-    // console.log(fileData.findIndex(x => x.username==username));
-    // fs.writeFile('data.json',JSON.stringify(fileData, null, 2),function(err){
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
-    // res.redirect('/profile');
 });
 
 
@@ -178,11 +169,8 @@ app.post('/login',url,function(req,res){
 // ********************************************
 
 var server = app.listen(3000, listening);
-
 function listening(){
-
    console.log("listening")
-
 }
 
 
