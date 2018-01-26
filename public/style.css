@@ -78,5 +78,8 @@ hr {
   font-size: 30px;
   text-align: center;
 }
-
+.flashCards{
+  width: 200px;
+  height: 100px;
+}
 

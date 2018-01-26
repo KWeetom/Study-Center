@@ -100,14 +100,6 @@ app.post('/create', url, function (req, res) {
     // });
 
     signUp(username,password);
-    // newClass('testclass!');
-    // newClass('testclass!!');
-
-    // newDeck();
-    // newDeck('testdect2');
-    // newDeck('testdect3');
-
-
     res.redirect('/profile');
 
 //===============================
