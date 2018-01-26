@@ -28,6 +28,12 @@
             "cardNumber": 0,
             "deckdescription": "asdajfhadjfa\r\nfdkmak\r\nagnaf",
             "cards": []
+          },
+          {
+            "deckName": "inertia",
+            "cardNumber": 0,
+            "deckdescription": "I love inertia",
+            "cards": []
           }
         ]
       },
@@ -35,35 +41,58 @@
         "className": "Math!",
         "decks": [
           {
-            "deckName": "testdect",
+            "deckName": "Linear Algebra",
             "cardNumber": 0,
-            "deckdescription": "",
+            "deckdescription": "the basics of linear Algebra",
             "cards": []
           }
         ]
       },
       {
-        "className": "Chemistry",
+        "className": "Chem",
         "decks": [
           {
-            "deckName": "testdect",
+            "deckName": "Solvent",
             "cardNumber": 0,
-            "deckdescription": "",
-            "cards": []
-          },
-          {
-            "deckName": "the body",
-            "cardNumber": 0,
+            "deckdescription": "How to unglue things",
             "cards": []
           }
         ]
       },
       {
         "className": "art",
+        "decks": []
+      }
+    ]
+  },
+  {
+    "email": "kad@gmail.com",
+    "password": "12345",
+    "classes": [
+      {
+        "className": "Chem",
         "decks": [
           {
-            "deckName": "Picasso",
+            "deckName": "Gasses",
             "cardNumber": 0,
+            "deckdescription": "how liquids turn to gasses",
+            "cards": []
+          }
+        ]
+      },
+      {
+        "className": "Bio",
+        "decks": [
+          {
+            "deckName": "Animal Cells",
+            "cardNumber": 0,
+            "deckdescription": "The cells of an animal",
+            "cards": []
+          },
+          {
+            "deckName": "plant cells",
+            "cardNumber": 0,
+            "deckdescription": "the cells of the plant",
             "cards": []
           }
         ]
