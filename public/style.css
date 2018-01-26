@@ -29,6 +29,9 @@ h1 {
     overflow: auto;
 
 }
+#loginInfo{
+  color: white;
+}
 
 h3{
     text-align: center;
